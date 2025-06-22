@@ -4,6 +4,9 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "Odyssey.",
   description: "Become Legend",
+  openGraph: {
+    images: ["/og_image.png"],
+  },
 };
 
 export default function RootLayout({
