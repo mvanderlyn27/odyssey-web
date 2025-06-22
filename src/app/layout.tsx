@@ -6,6 +6,8 @@ export const metadata: Metadata = {
   description: "Become Legend",
   openGraph: {
     images: ["/og_image.png"],
+    type: "website",
+    url: "https://www.odysseyfit.app",
   },
 };
 
