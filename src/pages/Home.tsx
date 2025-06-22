@@ -1,6 +1,5 @@
-"use client";
-import Link from "next/link";
-import WaitlistForm from "@/components/WaitlistForm";
+import { Link } from "react-router-dom";
+import WaitlistForm from "../components/WaitlistForm";
 import { motion } from "framer-motion";
 
 export default function Home() {
@@ -26,13 +25,13 @@ export default function Home() {
         </main>
         <footer className="py-4">
           <div className="container mx-auto flex justify-center space-x-4 text-gray-400">
-            <Link href="/eula" className="underline">
+            <Link to="/eula" className="underline">
               User Agreement
             </Link>
-            <Link href="/privacy" className="underline">
+            <Link to="/privacy" className="underline">
               Privacy Policy
             </Link>
-            <Link href="/support" className="underline">
+            <Link to="/support" className="underline">
               Contact Us
             </Link>
           </div>
@@ -62,13 +61,13 @@ export default function Home() {
           </div>
           <div className="py-4">
             <div className="container text-xl mx-auto flex justify-center space-x-4 text-[#616161]">
-              <Link href="/eula" className="underline">
+              <Link to="/eula" className="underline">
                 User Agreement
               </Link>
-              <Link href="/privacy" className="underline">
+              <Link to="/privacy" className="underline">
                 Privacy Policy
               </Link>
-              <Link href="/support" className="underline">
+              <Link to="/support" className="underline">
                 Contact Us
               </Link>
             </div>
