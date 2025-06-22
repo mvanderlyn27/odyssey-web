@@ -2,11 +2,13 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { usePostHog } from "posthog-js/react";
 
 export default function WaitlistForm() {
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
   const [message, setMessage] = useState("");
   const [email, setEmail] = useState("");
+  const posthog = usePostHog();
 
   useEffect(() => {
     if (localStorage.getItem("waitlist_joined")) {
@@ -34,9 +36,11 @@ export default function WaitlistForm() {
       setStatus("success");
       setMessage("Thanks for joining the waitlist!");
       localStorage.setItem("waitlist_joined", "true");
+      posthog.capture("waitlist_joined", { email });
     } else {
       setStatus("error");
       setMessage("Something went wrong. Please try again.");
+      posthog.capture("waitlist_join_error", { email });
     }
   };
 

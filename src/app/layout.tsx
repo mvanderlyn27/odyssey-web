@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
+import { PHProvider } from "@/components/PostHogProvider";
 import "./globals.css";
 
 export const metadata: Metadata = {
   title: "Odyssey.",
   description: "Become Legend",
+  metadataBase: new URL("https://www.odysseyfit.app"),
   openGraph: {
     images: ["/og_image.png"],
     type: "website",
@@ -18,7 +20,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className="antialiased">{children}</body>
+      <PHProvider>
+        <body className="antialiased">{children}</body>
+      </PHProvider>
     </html>
   );
 }
