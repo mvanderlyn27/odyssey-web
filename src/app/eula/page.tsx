@@ -14,7 +14,7 @@ export default function Eula() {
             className="text-blue-400 hover:underline"
             target="_blank"
             rel="noopener noreferrer">
-            Apple's Standard EULA
+            {"Apple's Standard EULA"}
           </Link>
         </div>
       </main>

@@ -192,14 +192,14 @@ export default function Privacy() {
                 support@odysseyfit.app.
               </li>
               <li>
-                Opt-Out of Marketing: You can unsubscribe from our marketing emails by clicking the "unsubscribe" link
-                in the email.
+                Opt-Out of Marketing: You can unsubscribe from our marketing emails by clicking the {'"unsubscribe"'}
+                link in the email.
               </li>
             </ul>
           </div>
 
           <div>
-            <h2 className="text-2xl font-bold mb-2">7. CHILDREN'S PRIVACY</h2>
+            <h2 className="text-2xl font-bold mb-2">{"7. CHILDREN'S PRIVACY"}</h2>
             <p>
               Our App is not intended for use by children under the age of 13 (or 16 in the European Economic Area). We
               do not knowingly collect personal information from children under this age. If we learn that we have
