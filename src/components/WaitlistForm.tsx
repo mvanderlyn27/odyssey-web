@@ -34,9 +34,11 @@ export default function WaitlistForm() {
     console.log("reponse", response);
     if (response.ok) {
       setStatus("success");
+      setEmail("");
       setMessage("Thanks for joining the waitlist!");
       localStorage.setItem("waitlist_joined", "true");
       posthog.capture("waitlist_joined", { email });
+      console.log("posthog", posthog);
     } else {
       setStatus("error");
       setMessage("Something went wrong. Please try again.");
