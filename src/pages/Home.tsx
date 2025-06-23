@@ -13,11 +13,24 @@ export default function Home() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
             className="text-center">
-            <p style={{ fontSize: "24px", lineHeight: "1.5" }}>The #1 Workout Tracking & Ranking App</p>
-            <h1 className="text-6xl font-bold my-2" style={{ fontFamily: "Lexend Mega, sans-serif" }}>
-              ODYSSEY.
-            </h1>
-            <p style={{ fontSize: "25px", lineHeight: "1.5" }}>Lift. Sweat. Repeat—Become Legend</p>
+            <p
+              className="font-inter font-normal text-center tracking-[11px] leading-relaxed"
+              style={{ fontSize: "clamp(0.75rem, 4vw, 1.25rem)" }}>
+              The #1 Workout Tracking & Ranking App
+            </p>
+            <div className="flex-col gap-2 mb-8 my-12 md:my-18 lg:my-24 px-12">
+              <h1
+                className="font-bold my-2"
+                style={{
+                  fontFamily: "Lexend Mega, sans-serif",
+                  fontSize: "clamp(2.5rem, 12vw, 5rem)",
+                }}>
+                ODYSSEY.
+              </h1>
+              <p className="font-inter font-light text-center" style={{ fontSize: "clamp(0.875rem, 7vw, 1.5rem)" }}>
+                Lift. Sweat. Repeat—Become Legend
+              </p>
+            </div>
             <div className="mt-8 w-full">
               <WaitlistForm />
             </div>
@@ -47,14 +60,25 @@ export default function Home() {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.7 }}
               className="text-center px-8">
-              <p style={{ fontSize: "30px", lineHeight: "1.5", letterSpacing: "11px" }}>
+              <p
+                className="font-inter font-normal text-center tracking-[11px] leading-relaxed"
+                style={{ fontSize: "clamp(1rem, 9vw, 2.25rem)" }}>
                 The #1 Workout Tracking & Ranking App
               </p>
-              <h1 className="text-9xl font-bold my-4" style={{ fontFamily: "Lexend Mega, sans-serif" }}>
-                ODYSSEY.
-              </h1>
-              <p style={{ fontSize: "50px", lineHeight: "1.5" }}>Lift. Sweat. Repeat—Become Legend</p>
-              <div className="mt-8 w-full">
+              <div className="flex-col gap-2 mb-8 my-12 md:my-18 lg:my-24 px-24">
+                <h1
+                  className="font-bold"
+                  style={{
+                    fontFamily: "Lexend Mega, sans-serif",
+                    fontSize: "clamp(4rem, 9vw, 9rem)",
+                  }}>
+                  ODYSSEY.
+                </h1>
+                <p className="font-inter font-light text-center" style={{ fontSize: "clamp(1.25rem, 9vw, 2.25rem)" }}>
+                  Lift. Sweat. Repeat—Become Legend
+                </p>
+              </div>
+              <div className="w-full">
                 <WaitlistForm />
               </div>
             </motion.div>
