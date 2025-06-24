@@ -36,7 +36,7 @@ export default function Home() {
           </motion.div>
         </main>
         <footer className="py-4">
-          <div className="container mx-auto flex justify-center space-x-4 text-gray-400">
+          <div className="container text-sm mx-auto flex justify-center space-x-4 text-white/70">
             <Link to="/eula" className="underline">
               User Agreement
             </Link>
@@ -82,7 +82,7 @@ export default function Home() {
             </motion.div>
           </div>
           <div className="py-4">
-            <div className="container text-xl mx-auto flex justify-center space-x-4 text-[#616161]">
+            <div className="container text-md mx-auto flex justify-center space-x-4 text-[#616161]">
               <Link to="/eula" className="underline">
                 User Agreement
               </Link>
