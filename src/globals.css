@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300,400;700&family=Lexend+Mega&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&family=Lexend+Mega:wght@100..900&display=swap");
 @import "tailwindcss";
 
 :root {
@@ -8,6 +8,13 @@
 
 .font-inter {
   font-family: "Inter", sans-serif;
+}
+
+.font-lexend-mega {
+  font-family: "Lexend Mega", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  font-style: normal;
 }
 
 @media (prefers-color-scheme: dark) {

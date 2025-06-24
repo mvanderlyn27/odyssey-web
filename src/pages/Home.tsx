@@ -20,9 +20,8 @@ export default function Home() {
             </p>
             <div className="flex-col gap-2 mb-8 my-12 md:my-18 lg:my-24 px-12">
               <h1
-                className="font-bold my-2"
+                className=" my-2 font-lexend-mega"
                 style={{
-                  fontFamily: "Lexend Mega, sans-serif",
                   fontSize: "clamp(2.5rem, 12vw, 5rem)",
                 }}>
                 ODYSSEY.
@@ -53,7 +52,7 @@ export default function Home() {
 
       {/* Desktop View */}
       <div className="hidden lg:flex min-h-screen text-white desktop-background">
-        <div className="min-w-[60%] flex flex-col px-8">
+        <div className="w-[60%] flex flex-col px-8">
           <div className="flex-grow flex flex-col justify-center items-center">
             <motion.div
               initial={{ opacity: 0, x: -50 }}
@@ -62,19 +61,18 @@ export default function Home() {
               className="text-center px-8">
               <p
                 className="font-inter font-normal text-center tracking-[11px] leading-relaxed"
-                style={{ fontSize: "clamp(1rem, 9vw, 2.25rem)" }}>
+                style={{ fontSize: "clamp(.5rem, 5vw, 1.25rem)" }}>
                 The #1 Workout Tracking & Ranking App
               </p>
-              <div className="flex-col gap-2 mb-8 my-12 md:my-18 lg:my-24 px-24">
+              <div className="flex-col gap-2 mb-8  md:my-6 lg:my-8 px-24">
                 <h1
-                  className="font-bold"
+                  className="font-lexend-mega"
                   style={{
-                    fontFamily: "Lexend Mega, sans-serif",
-                    fontSize: "clamp(4rem, 9vw, 9rem)",
+                    fontSize: "clamp(5rem, 5vw, 10rem)",
                   }}>
                   ODYSSEY.
                 </h1>
-                <p className="font-inter font-light text-center" style={{ fontSize: "clamp(1.25rem, 9vw, 2.25rem)" }}>
+                <p className="font-inter font-light text-center" style={{ fontSize: "clamp(1rem, 5vw, 1.5rem)" }}>
                   Lift. Sweat. Repeat—Become Legend
                 </p>
               </div>

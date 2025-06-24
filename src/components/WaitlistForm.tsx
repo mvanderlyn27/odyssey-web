@@ -47,7 +47,7 @@ export default function WaitlistForm() {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="w-full max-w-md mx-auto">
+    <form onSubmit={handleSubmit} className="w-full max-w-sm mx-auto">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
