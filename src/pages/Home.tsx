@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import WaitlistForm from "../components/WaitlistForm";
+import WaitlistPlaceholder from "../components/WaitlistPlaceholder";
 import { motion } from "framer-motion";
 
 export default function Home() {
@@ -31,7 +31,7 @@ export default function Home() {
               </p>
             </div>
             <div className="mt-8 w-full">
-              <WaitlistForm />
+              <WaitlistPlaceholder />
             </div>
           </motion.div>
         </main>
@@ -77,7 +77,7 @@ export default function Home() {
                 </p>
               </div>
               <div className="w-full">
-                <WaitlistForm />
+                <WaitlistPlaceholder />
               </div>
             </motion.div>
           </div>
