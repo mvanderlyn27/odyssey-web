@@ -2,8 +2,8 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #000000;
+  --foreground: #ffffff;
 }
 
 .font-inter {
@@ -17,29 +17,10 @@
   font-style: normal;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: "Inter", sans-serif;
-}
-
-.desktop-background {
-  background-image: url("/background.png");
-  background-size: cover;
-  background-position: center;
-}
-
-.mobile-background {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("/background_mobile.png");
-  background-size: cover;
-  background-position: center;
 }
 
 @keyframes fadeIn {
@@ -57,4 +38,8 @@ body {
 
 #root {
   transition: opacity 0.5s ease-in-out;
+}
+
+body {
+  @apply bg-black text-white;
 }
