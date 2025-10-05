@@ -10,7 +10,7 @@ export default function StoreButtons() {
         target="_blank"
         rel="noopener noreferrer"
         className="flex-1 overflow-visible"
-        onClick={() => posthog.capture("app_store_button_clicked")}>
+        onClick={() => posthog.capture("store_button_clicked", { store: "app_store" })}>
         <img
           src="/app_store.png"
           alt="App Store"
@@ -22,7 +22,7 @@ export default function StoreButtons() {
         target="_blank"
         rel="noopener noreferrer"
         className="flex-1 overflow-visible"
-        onClick={() => posthog.capture("play_store_button_clicked")}>
+        onClick={() => posthog.capture("store_button_clicked", { store: "play_store" })}>
         <img
           src="/play_store.png"
           alt="Google Play"
