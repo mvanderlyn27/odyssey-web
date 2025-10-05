@@ -4,17 +4,17 @@ type BackgroundImageProps = {
   mobileSrc: string;
   desktopSrc: string;
   className?: string;
+  alt?: string;
 };
 
-export default function ResponsiveBackgroundImage({ mobileSrc, desktopSrc, className }: BackgroundImageProps) {
+export default function ResponsiveBackgroundImage({
+  mobileSrc,
+  desktopSrc,
+  className,
+  alt = "",
+}: BackgroundImageProps) {
   const isDesktop = useMediaQuery({ query: "(min-width: 768px)" });
+  const src = isDesktop ? desktopSrc : mobileSrc;
 
-  return (
-    <div
-      className={`absolute bg-contain bg-no-repeat bg-center -z-10 ${className}`}
-      style={{
-        backgroundImage: `url(${isDesktop ? desktopSrc : mobileSrc})`,
-      }}
-    />
-  );
+  return <img src={src} alt={alt} className={`absolute -z-10 ${className}`} />;
 }

@@ -6,17 +6,41 @@ import PhoneScreenHeader from "../components/PhoneScreenHeader";
 import StoreButtons from "../components/StoreButtons";
 import ResponsiveBackgroundImage from "../components/ResponsiveBackgroundImage";
 
-const Header = () => (
-  <header className="fixed top-0 left-0 right-0 bg-black/30 backdrop-blur-sm z-50 p-4 flex justify-between items-center px-4 md:px-10">
-    <div className="flex items-center gap-4">
-      <img src="/icon.png" alt="Odyssey Logo" className="h-8 w-auto" />
-      <span className="font-bold text-xl tracking-wider font-lexend-mega">ODYSSEY.</span>
-    </div>
-    <button className="bg-white text-black text-sm md:text-md lg:text-lg font-bold py-2 px-8 rounded-full">
-      Get App
-    </button>
-  </header>
-);
+import { useMediaQuery } from "react-responsive";
+
+const Header = () => {
+  const isDesktop = useMediaQuery({ query: "(min-width: 768px)" });
+
+  const handleGetAppClick = () => {
+    if (isDesktop) {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    } else {
+      const userAgent = navigator.userAgent || navigator.vendor || (window as any).opera;
+      if (/android/i.test(userAgent)) {
+        window.location.href = import.meta.env.VITE_PLAY_STORE_URL;
+      } else if (/iPad|iPhone|iPod/.test(userAgent) && !(window as any).MSStream) {
+        window.location.href = import.meta.env.VITE_APP_STORE_URL;
+      } else {
+        // Fallback for other OS or if detection fails
+        window.location.href = import.meta.env.VITE_APP_STORE_URL;
+      }
+    }
+  };
+
+  return (
+    <header className="fixed top-0 left-0 right-0 bg-black/30 backdrop-blur-sm z-50 p-4 flex justify-between items-center px-4 md:px-10">
+      <div className="flex items-center gap-4">
+        <img src="/icon.png" alt="Odyssey Logo" className="h-8 w-auto" />
+        <span className="font-bold text-xl tracking-wider font-lexend-mega">ODYSSEY.</span>
+      </div>
+      <button
+        onClick={handleGetAppClick}
+        className="bg-white text-black text-sm md:text-md lg:text-lg font-bold py-2 px-8 rounded-full">
+        Get App
+      </button>
+    </header>
+  );
+};
 
 const Section = ({ children, className = "" }: { children: React.ReactNode; className?: string }) => (
   <section className={`min-h-screen flex flex-col justify-center items-center relative w-full ${className}`}>
@@ -39,7 +63,24 @@ const Feature = ({
   imagePosition?: "left" | "right";
   secondaryImageSrc?: string;
 }) => {
+  const isDesktop = useMediaQuery({ query: "(min-width: 768px)" });
+
   if (layout === "special") {
+    const textContent = (
+      <div className="md:w-1/2 text-center md:text-left">
+        <h3 className="text-[clamp(1.5rem,4vw,2.25rem)] font-bold mb-2">{title}</h3>
+        <p className="max-w-md mx-auto md:mx-0 text-white/80 text-[clamp(1rem,2.5vw,1.25rem)]">{description}</p>
+        {secondaryImageSrc && (
+          <img src={secondaryImageSrc} alt="Ranks" className="mx-auto md:mx-0 mt-4 h-24 object-contain" />
+        )}
+      </div>
+    );
+    const imageContent = (
+      <div className="md:w-1/2">
+        <img src={imageSrc} alt={title} className="mx-auto max-h-96 md:max-h-[450px] object-contain" />
+      </div>
+    );
+
     return (
       <motion.div
         initial={{ opacity: 0, y: 20 }}
@@ -47,16 +88,17 @@ const Feature = ({
         transition={{ duration: 0.5 }}
         viewport={{ once: true, amount: 0.5 }}
         className="flex flex-col md:flex-row items-center gap-8">
-        <div className="md:w-1/2">
-          <img src={imageSrc} alt={title} className="mx-auto max-h-96 md:max-h-[450px] object-contain" />
-        </div>
-        <div className="md:w-1/2 text-center md:text-left">
-          <h3 className="text-[clamp(1.5rem,4vw,2.25rem)] font-bold mb-2">{title}</h3>
-          <p className="max-w-md mx-auto md:mx-0 text-white/80 text-[clamp(1rem,2.5vw,1.25rem)]">{description}</p>
-          {secondaryImageSrc && (
-            <img src={secondaryImageSrc} alt="Ranks" className="mx-auto md:mx-0 mt-4 h-24 object-contain" />
-          )}
-        </div>
+        {isDesktop ? (
+          <>
+            {imageContent}
+            {textContent}
+          </>
+        ) : (
+          <>
+            {textContent}
+            {imageContent}
+          </>
+        )}
       </motion.div>
     );
   }
@@ -151,7 +193,7 @@ export default function Home() {
           <ResponsiveBackgroundImage
             mobileSrc="/greek_background_photos/1.png"
             desktopSrc="/greek_background_photos/1.png"
-            className="w-full h-full top-0 left-0 transform scale-160 md:scale-120 lg:scale-100 object-cover z-0"
+            className="w-full h-full top-0 left-0 transform scale-160 md:scale-120 lg:scale-100 object-contain z-0"
           />
           <div className="relative z-10 w-full px-4 md:px-10">
             <div className="flex flex-col lg:flex-row gap-8 items-center w-full px-8">
@@ -165,8 +207,8 @@ export default function Home() {
                   LIFT. RANK.
                   <br /> PROGRESS.
                 </h1>
-                <p className="text-[clamp(1rem,2.5vw,1.25rem)] mt-2 text-white/80">
-                  The ultimate workout tracking experience
+                <p className="text-[clamp(0.8rem,2.5vw,1.25rem)] mt-2 text-white/80">
+                  The #1 workout ranking app to grow stronger
                 </p>
                 <StoreButtons />
               </motion.div>
@@ -180,22 +222,22 @@ export default function Home() {
         {/* Testimonials Section */}
         <Section className="pt-16">
           <div className="relative z-10 w-full px-4 md:px-10">
-            <HeaderQuote quote="The best tracking app I've ever used." author="John Doe" />
+            <HeaderQuote quote="The best tracking app I've ever used." author="—Sander, 3-year gym goer" />
             <div className="max-w-5xl mx-auto space-y-24">
               <Testimonial
-                quote="The best tracking app I've ever used."
-                author="John Doe"
+                quote="I have used all sorts of ways of tracking but none worked out for me. This app is the only one I’ve been able to stay consistent with."
+                author="—Sander, 3-year gym goer"
                 imageSrc="/reviews/image-2.png"
                 hideAuthor
               />
               <Testimonial
-                quote="Odyssey has revolutionized my workout routine."
-                author="Jane Smith"
+                quote="I was barely improving before, but this app keeps me motivated. I’ve moved up in every lift since."
+                author="— Connor, 2-month lifter"
                 imageSrc="/reviews/image-1.png"
               />
               <Testimonial
-                quote="Finally, an app that understands lifters."
-                author="Sam Wilson"
+                quote="“Since using the app I’ve been way more consistent. I’m seeing progress and Odyssey keeps me in check. Highly recommend.”"
+                author="— Kris, 2.5-year lifter"
                 imageSrc="/reviews/image.png"
               />
             </div>
@@ -207,17 +249,17 @@ export default function Home() {
           <ResponsiveBackgroundImage
             mobileSrc="/greek_background_photos/2.png"
             desktopSrc="/greek_background_photos/2.png"
-            className="scale-300 lg:scale-130 w-1/2 h-1/2 left-1/2 transform -translate-x-1/2 -translate-y-[70%] md:-translate-y-1/2 object-contain"
+            className="scale-300 lg:scale-130 w-1/2 h-1/2 left-1/2 transform -translate-x-1/2  -translate-y-[70%] md:-translate-y-1/2 object-contain"
           />
           <ResponsiveBackgroundImage
             mobileSrc="/greek_background_photos/3.png"
             desktopSrc="/greek_background_photos/3.png"
-            className="w-1/2 h-1/2 top-[90%]  scale-200 lg:scale:100 left-0 transform -translate-x-1/5  "
+            className="w-full md:w-1/5 h-1/2 top-[90%] left-0 object-contain transform   "
           />
           <ResponsiveBackgroundImage
             mobileSrc="/greek_background_photos/4.png"
             desktopSrc="/greek_background_photos/4.png"
-            className="block w-2/5 h-2/5  scale-200 lg:scale:100   lg:top-3/5 right-0"
+            className="block w-full h-1/2 md:w-1/7 md:h-2/5 object-contain  top-1/3 lg:top-3/5 md:right-1/8"
           />
           <div className="relative z-10 w-full px-4 md:px-10">
             <motion.div

@@ -8,7 +8,7 @@ const HeaderQuote = ({ quote, author }: { quote: string; author: string }) => (
     viewport={{ once: true, amount: 0.3 }}
     className="text-center max-w-4xl mx-auto mb-16">
     <h2 className="text-[clamp(1.5rem,4vw,2.5rem)] font-bold">{`"${quote}"`}</h2>
-    <p className="text-white/70 mt-4 text-xl">{`- ${author}`}</p>
+    <p className="text-white/70 mt-4 text-xl">{`${author}`}</p>
   </motion.div>
 );
 
