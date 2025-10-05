@@ -12,19 +12,7 @@ const Header = () => {
   const isDesktop = useMediaQuery({ query: "(min-width: 768px)" });
 
   const handleGetAppClick = () => {
-    if (isDesktop) {
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    } else {
-      const userAgent = navigator.userAgent || navigator.vendor || (window as any).opera;
-      if (/android/i.test(userAgent)) {
-        window.location.href = import.meta.env.VITE_PLAY_STORE_URL;
-      } else if (/iPad|iPhone|iPod/.test(userAgent) && !(window as any).MSStream) {
-        window.location.href = import.meta.env.VITE_APP_STORE_URL;
-      } else {
-        // Fallback for other OS or if detection fails
-        window.location.href = import.meta.env.VITE_APP_STORE_URL;
-      }
-    }
+    window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   return (
