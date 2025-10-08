@@ -48,7 +48,7 @@ const GetAppButton = () => {
   return (
     <button
       onClick={handleGetAppClick}
-      className="bg-white text-black text-sm md:text-md lg:text-lg font-bold py-2 px-8 rounded-full">
+      className="bg-white text-black text-sm md:text-md lg:text-lg font-bold py-2 px-8 rounded-full cursor-pointer">
       Get App
     </button>
   );

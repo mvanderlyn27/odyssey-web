@@ -6,20 +6,15 @@ import PhoneScreenHeader from "../components/PhoneScreenHeader";
 import StoreButtons from "../components/StoreButtons";
 import GetAppButton from "../components/GetAppButton";
 import ResponsiveBackgroundImage from "../components/ResponsiveBackgroundImage";
+import OptimizedPicture from "../components/OptimizedPicture";
 
 import { useMediaQuery } from "react-responsive";
 
 const Header = () => {
-  const isDesktop = useMediaQuery({ query: "(min-width: 768px)" });
-
-  const handleGetAppClick = () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  };
-
   return (
     <header className="fixed top-0 left-0 right-0 bg-black/30 backdrop-blur-sm z-50 p-4 flex justify-between items-center px-4 md:px-10">
       <div className="flex items-center gap-4">
-        <img src="/icon.png" alt="Odyssey Logo" className="h-8 w-auto" />
+        <OptimizedPicture src="/icon.png" alt="Odyssey Logo" className="h-8 w-auto" />
         <span className="font-bold text-xl tracking-wider font-lexend-mega">ODYSSEY.</span>
       </div>
       <GetAppButton />
@@ -56,13 +51,17 @@ const Feature = ({
         <h3 className="text-[clamp(1.5rem,4vw,2.25rem)] font-bold mb-2">{title}</h3>
         <p className="max-w-md mx-auto md:mx-0 text-white/80 text-[clamp(1rem,2.5vw,1.25rem)]">{description}</p>
         {secondaryImageSrc && (
-          <img src={secondaryImageSrc} alt="Ranks" className="mx-auto md:mx-0 mt-4 h-24 object-contain" />
+          <OptimizedPicture src={secondaryImageSrc} alt="Ranks" className="mx-auto md:mx-0 mt-4 h-24 object-contain" />
         )}
       </div>
     );
     const imageContent = (
       <div className="md:w-1/2">
-        <img src={imageSrc} alt={title} className="mx-auto max-h-96 md:max-h-[450px] object-contain" />
+        <OptimizedPicture
+          src={imageSrc}
+          alt={title}
+          className="mx-auto max-h-96 md:max-h-[450px] lg:max-h-[600px] object-contain"
+        />
       </div>
     );
 
@@ -103,7 +102,11 @@ const Feature = ({
           <p className="max-w-md mx-auto md:mx-0 text-white/80 text-[clamp(1rem,2.5vw,1.25rem)]">{description}</p>
         </div>
         <div className="md:w-1/2">
-          <img src={imageSrc} alt={title} className="mx-auto max-h-96 md:max-h-[450px] object-contain" />
+          <OptimizedPicture
+            src={imageSrc}
+            alt={title}
+            className="mx-auto max-h-96 md:max-h-[450px] lg:max-h-[600px] object-contain"
+          />
         </div>
       </motion.div>
     );
@@ -118,7 +121,11 @@ const Feature = ({
       className="text-center">
       <h3 className="text-[clamp(1.25rem,3vw,1.75rem)] font-bold mb-2">{title}</h3>
       <p className="max-w-xs mx-auto text-white/80 text-[clamp(0.875rem,2vw,1rem)]">{description}</p>
-      <img src={imageSrc} alt={title} className="mx-auto mt-4 max-h-96 md:max-h-[450px] object-contain" />
+      <OptimizedPicture
+        src={imageSrc}
+        alt={title}
+        className="mx-auto mt-4 max-h-96 md:max-h-[450px] lg:max-h-[600px] object-contain"
+      />
     </motion.div>
   );
 };
@@ -187,7 +194,7 @@ export default function Home() {
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.5 }}
                 className="w-full lg:w-1/2 flex flex-col items-start text-left">
-                <img src="/5_star.png" alt="5 Stars" className="h-12 w-auto mb-4" />
+                <OptimizedPicture src="/5_star.png" alt="5 Stars" className="h-12 w-auto mb-4" />
                 <h1 className="text-[clamp(1.5rem,5vw,4rem)] leading-tight font-bold tracking-wider font-lexend-mega">
                   LIFT. RANK.
                   <br /> PROGRESS.
@@ -234,17 +241,17 @@ export default function Home() {
           <ResponsiveBackgroundImage
             mobileSrc="/greek_background_photos/2.png"
             desktopSrc="/greek_background_photos/2.png"
-            className="scale-300 lg:scale-130 w-1/2 h-1/2 left-1/2 transform -translate-x-1/2  -translate-y-[70%] md:-translate-y-1/2 object-contain"
+            className="scale-300 lg:scale-130 w-1/2 md:w-1/3 lg:w-1/2 h-1/2 md:h-1/3 lg:h-1/2 left-1/2 transform -translate-x-1/2  -translate-y-[70%] md:-translate-y-full lg:-translate-y-1/2 object-contain"
           />
           <ResponsiveBackgroundImage
             mobileSrc="/greek_background_photos/3.png"
             desktopSrc="/greek_background_photos/3.png"
-            className="w-full md:w-1/5 h-1/2 top-[90%] left-0 object-contain transform   "
+            className="w-full md:w-1/2 lg:w-1/3 h-1/2 md:h-1/2 lg:h-1/2 top-[90%] left-0 object-contain transform   "
           />
           <ResponsiveBackgroundImage
             mobileSrc="/greek_background_photos/4.png"
             desktopSrc="/greek_background_photos/4.png"
-            className="block w-full h-1/2 md:w-1/7 md:h-2/5 object-contain  top-1/3 lg:top-3/5 md:right-1/8"
+            className="block w-full h-1/2 md:w-1/2 lg:w-1/3 md:h-2/5 object-contain  top-1/3 md:top-1/2 lg:top-3/5 md:right-1/8 lg:right-1/12"
           />
           <div className="relative z-10 w-full px-4 md:px-10">
             <motion.div
@@ -283,7 +290,7 @@ export default function Home() {
               transition={{ duration: 0.5 }}
               viewport={{ once: true, amount: 0.5 }}
               className="text-center flex flex-col items-center">
-              <img src="/ranks.png" alt="Ranks" className="h-20 w-full mb-4 object-contain" />
+              <OptimizedPicture src="/ranks.png" alt="Ranks" className="h-20 w-full mb-4 object-contain" />
               <h2 className="text-[clamp(2.5rem,5vw,4rem)] font-bold font-lexend-mega">START YOUR LEGEND.</h2>
               <p className="text-[clamp(1rem,2.5vw,1.5rem)] mt-2 text-white/80">
                 Join Odyssey now and unlock your true potential.
