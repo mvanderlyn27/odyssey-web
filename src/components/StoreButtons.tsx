@@ -1,10 +1,12 @@
 import { usePostHog } from "posthog-js/react";
 
-export default function StoreButtons() {
+export default function StoreButtons({ className }: { className?: string }) {
   const posthog = usePostHog();
 
   return (
-    <div className="flex flex-row justify-center md:justify-start gap-4 my-6 w-full max-w-sm mx-auto md:mx-0">
+    <div
+      id="store-buttons"
+      className={`flex flex-row justify-center md:justify-start gap-4 my-6 w-full max-w-sm mx-auto md:mx-0 ${className}`}>
       <a
         href={import.meta.env.VITE_APP_STORE_URL}
         target="_blank"

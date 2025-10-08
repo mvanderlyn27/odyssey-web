@@ -4,6 +4,7 @@ import Testimonial from "../components/Testimonial";
 import HeaderQuote from "../components/HeaderQuote";
 import PhoneScreenHeader from "../components/PhoneScreenHeader";
 import StoreButtons from "../components/StoreButtons";
+import GetAppButton from "../components/GetAppButton";
 import ResponsiveBackgroundImage from "../components/ResponsiveBackgroundImage";
 
 import { useMediaQuery } from "react-responsive";
@@ -21,11 +22,7 @@ const Header = () => {
         <img src="/icon.png" alt="Odyssey Logo" className="h-8 w-auto" />
         <span className="font-bold text-xl tracking-wider font-lexend-mega">ODYSSEY.</span>
       </div>
-      <button
-        onClick={handleGetAppClick}
-        className="bg-white text-black text-sm md:text-md lg:text-lg font-bold py-2 px-8 rounded-full">
-        Get App
-      </button>
+      <GetAppButton />
     </header>
   );
 };
