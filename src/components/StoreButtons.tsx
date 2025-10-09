@@ -1,5 +1,4 @@
 import { usePostHog } from "posthog-js/react";
-import OptimizedPicture from "./OptimizedPicture";
 
 export default function StoreButtons({ className }: { className?: string }) {
   const posthog = usePostHog();
@@ -14,7 +13,7 @@ export default function StoreButtons({ className }: { className?: string }) {
         rel="noopener noreferrer"
         className="flex-1 overflow-visible"
         onClick={() => posthog.capture("store_button_clicked", { store: "app_store" })}>
-        <OptimizedPicture
+        <img
           src="/app_store.png"
           alt="App Store"
           className="h-auto w-auto min-w-38 transform transition-transform hover:scale-105"
@@ -26,7 +25,7 @@ export default function StoreButtons({ className }: { className?: string }) {
         rel="noopener noreferrer"
         className="flex-1 overflow-visible"
         onClick={() => posthog.capture("store_button_clicked", { store: "play_store" })}>
-        <OptimizedPicture
+        <img
           src="/play_store.png"
           alt="Google Play"
           className="h-auto w-auto min-w-38 transform transition-transform hover:scale-105"

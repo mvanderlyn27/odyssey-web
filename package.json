@@ -8,15 +8,12 @@
     "serve": "vite preview"
   },
   "dependencies": {
-    "blurhash": "^2.0.5",
     "framer-motion": "^12.18.1",
     "posthog-js": "^1.255.1",
     "react": "^19.0.0",
-    "react-blurhash": "^0.3.0",
     "react-dom": "^19.0.0",
     "react-responsive": "^10.0.1",
-    "react-router-dom": "^7.6.2",
-    "sharp": "^0.34.4"
+    "react-router-dom": "^7.6.2"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",

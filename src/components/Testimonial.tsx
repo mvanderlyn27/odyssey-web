@@ -1,5 +1,4 @@
 import { motion } from "framer-motion";
-import OptimizedPicture from "./OptimizedPicture";
 
 const Testimonial = ({
   quote,
@@ -23,13 +22,11 @@ const Testimonial = ({
       transition={{ duration: 0.5 }}
       viewport={{ once: true, amount: 0.5 }}
       className={`flex justify-center items-center w-full md:w-1/2 ${imageLeft ? "md:order-1" : "md:order-2"}`}>
-      <div className="w-1/4 md:w-1/3">
-        <OptimizedPicture
-          src={imageSrc}
-          alt={`Testimonial from ${author}`}
-          className="rounded-lg shadow-lg object-contain "
-        />
-      </div>
+      <img
+        src={imageSrc}
+        alt={`Testimonial from ${author}`}
+        className="rounded-lg shadow-lg object-contain w-1/4 md:w-2/3 max-h-32"
+      />
     </motion.div>
     <div className={`text-center md:text-left w-full md:w-1/2 ${imageLeft ? "md:order-2" : "md:order-1"}`}>
       <h2
