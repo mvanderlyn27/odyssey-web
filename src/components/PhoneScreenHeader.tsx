@@ -7,14 +7,14 @@ const PhoneScreenHeader = () => {
 
   const getScale = () => {
     if (isMobile) {
-      return 1 + (1 - width / 768) * 0.6;
+      return 1 + (1 - width / 768) * 1;
     }
     return 1;
   };
 
   const getCenterScale = () => {
     if (isMobile) {
-      return 1.05 + (1 - width / 768) * 0.55;
+      return 1.05 + (1 - width / 768) * 0.85;
     }
     return 1.05;
   };
